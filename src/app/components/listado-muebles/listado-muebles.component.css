@@ -1,0 +1,40 @@
+table {
+  width: 100%;
+}
+.title {
+  padding: 5px;
+  background-color: rgb(20, 38, 101) ;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+.container {
+  margin: 0 10%;
+
+}
+td , th {
+  width: 15%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 50%;
+}
+
+.delete {
+  cursor: pointer;
+  color: brown;
+}
+
+.edit {
+  cursor: pointer;
+  color: blue;
+}
+.search {
+  cursor: pointer;
+
+}
+.agregar {
+  font-size: 15px;
+  line-height: 30px;
+}
+
