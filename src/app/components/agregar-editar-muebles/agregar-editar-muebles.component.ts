@@ -16,7 +16,7 @@ form: FormGroup
       descripcion:['',Validators.required],
       dim:['',Validators.required],
       color:['',Validators.required],
-      materialesId:['',Validators.required],
+      materialesId:['',Validators.nullValidator],
 
     })
    }
