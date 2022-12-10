@@ -9,10 +9,21 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatCardModule} from '@angular/material/card';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { SpinnerComponent } from './spinner/spinner.component';
+//  Componentes
+
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+
+    SpinnerComponent,
+
+  ],
   imports: [
     CommonModule,
     MatSlideToggleModule,
@@ -24,6 +35,12 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatIconModule,
     MatButtonModule,
     MatTooltipModule,
+    MatCardModule,
+    MatSnackBarModule,
+    MatProgressBarModule,
+
+
+
   ],
   exports: [
     CommonModule,
@@ -35,7 +52,13 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatInputModule,
     MatIconModule,
     MatButtonModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatCardModule,
+    MatSnackBarModule,
+    MatProgressBarModule,
+    SpinnerComponent,
+
+
   ]
 
 })

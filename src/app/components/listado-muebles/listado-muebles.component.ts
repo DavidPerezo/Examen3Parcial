@@ -5,6 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MUebles } from 'src/app/interfaces/muebles';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { validateHorizontalPosition } from '@angular/cdk/overlay';
 
 
 
@@ -29,12 +31,13 @@ const listMuebles: MUebles[] = [
 export class ListadoMueblesComponent implements OnInit, AfterViewInit  {
   displayedColumns: string[] = ['nombre', 'descripcion', 'dim', 'color' , 'materialesId', 'acciones'];
   dataSource = new MatTableDataSource<MUebles>(listMuebles);
+  loading: boolean = false;
 
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor() { }
+  constructor(private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -48,5 +51,22 @@ export class ListadoMueblesComponent implements OnInit, AfterViewInit  {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  eliminarMuebles(){
+
+    this.loading = true;
+
+    setTimeout(() => {
+      this.loading = false;
+      this._snackBar.open('El Mueble ha sido Eliminado', '',{
+        duration: 3000,
+        horizontalPosition: 'right',
+      });
+    }, 300);
+
+
+
+
   }
 }
