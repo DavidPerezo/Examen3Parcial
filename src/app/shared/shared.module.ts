@@ -16,6 +16,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { HttpClientModule } from '@angular/common/http';
 
 //  Componentes
 
@@ -43,6 +44,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     MatProgressBarModule,
     MatGridListModule,
     ReactiveFormsModule,
+    HttpClientModule,
 
 
 
@@ -64,6 +66,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     SpinnerComponent,
     MatGridListModule,
     ReactiveFormsModule,
+    HttpClientModule,
 
 
   ]

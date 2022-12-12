@@ -7,6 +7,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { validateHorizontalPosition } from '@angular/cdk/overlay';
+import { MuebleService } from 'src/app/services/mueble.service';
+import { first } from 'rxjs';
 
 
 
@@ -37,13 +39,18 @@ export class ListadoMueblesComponent implements OnInit, AfterViewInit  {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private _snackBar: MatSnackBar) { }
+  constructor(private _snackBar: MatSnackBar,
+
+    private _mueblesService:MuebleService) { }
 
   ngOnInit(): void {
+
+    this.obtenerMuebles();
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    if(this.dataSource.data.length> 0 )
     this.paginator._intl.itemsPerPageLabel = 'Items por Pagina'
   }
 
@@ -52,6 +59,19 @@ export class ListadoMueblesComponent implements OnInit, AfterViewInit  {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+  obtenerMuebles (){
+
+    this.loading =true;
+    this._mueblesService.getMuebles().subscribe(data => {
+      this.loading = false;
+      this.dataSource.data =data;
+
+    }, error => { this.loading = false;
+
+
+
+  })
+}
 
   eliminarMuebles(){
 
