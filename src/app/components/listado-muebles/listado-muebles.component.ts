@@ -68,7 +68,7 @@ export class ListadoMueblesComponent implements OnInit, AfterViewInit  {
 
     }, error => { this.loading = false;
 
-
+////
 
   })
 }
